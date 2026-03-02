@@ -1,0 +1,276 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  cursor: url("/src/assets/cursor.png") 16 16, auto;
+}
+
+.world-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.world-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease-out;
+}
+
+.world-map {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hover-item{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: url("/src/assets/cursor.png") 16 16, auto;
+  z-index: 5;
+}
+
+.building{
+  transition: transform 0.3s ease;
+}
+
+/* White outline effect */
+.hover-item:hover .building {
+  transform: scale(1);
+  filter: 
+  drop-shadow(4px 0 0 white)
+  drop-shadow(-4px 0 0 white)
+  drop-shadow(0 4px 0 white)
+  drop-shadow(0 -4px 0 white);
+}
+
+/* Label styling */
+.label{
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding:  6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Show label on hover */
+.hover-item:hover .label {
+  opacity: 1;
+}
+
+/* Hover wordings */
+.hover-word {
+  width: 100px;
+}
+
+/* Buildings size*/
+.statue-size{
+  width: 220px;
+}
+
+.journey-size{
+  width: 900px;
+}
+
+.projects-size{
+  width: 520px;
+}
+
+.playground-size{
+  width: 280px;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+  z-index: 1000;
+  pointer-events: none; /* Important */
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+  pointer-events: auto; /* So icons are clickable */
+}
+
+.nav-left {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.nav-center {
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.nav-right {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.building-wrapper {
+  position: relative;
+}
+
+.building {
+  position: absolute;
+  top: 0;
+  left: 0;
+  image-rendering: pixelated;
+  transition: opacity 0.15s ease;
+}
+
+/* default state */
+.building.hover {
+  opacity: 0;
+}
+
+/* hover switch */
+.hover-item:hover .building.hover {
+  opacity: 1;
+}
+
+/* JOURNEY PAGE */
+
+.journey-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #2e7a52;
+}
+
+.journey-bg {
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.journey-floor {
+  position: absolute;
+  object-fit: cover;
+  height: 100%;
+}
+
+.statue-row {
+  position: absolute;
+  bottom: 20px;
+  left: 40%;
+  width: 100%;
+  transform: translateX(0);
+  display: flex;
+  align-items: flex-end; /* important */
+  gap: 100px;
+  transition: transform 0.5s ease;
+  z-index: 3;
+}
+
+.statue {
+  height: 820px; /* uniform size */
+  flex-shrink: 0;
+  object-fit: contain;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.8;
+}
+
+.statue.active {
+  opacity: 1;
+}
+
+.statue-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 380px;
+}
+
+/* Spotlight */
+.spotlight {
+  position: absolute;
+  top: 98px;
+  width: 100px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6 ;
+  filter: brightness(1);
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+.statue-wrapper.active .spotlight{
+  opacity: 1;
+  filter: brightness(2) drop-shadow(0 0 20px rgba(255,255,200,0.8));
+}
+
+.statue-wrapper.active .statue{
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.spotlight-center {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.statue {
+  position: relative;
+  z-index: 2;
+}
+
+/* Navigation Arrows */
+.journey-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+
+.journey-nav img {
+  width: 100px;
+  image-rendering: pixelated;
+}
+
+.journey-nav.left {
+  left: 40px;
+}
+
+.journey-nav.right {
+  right: 40px;
+}
+
+.journey-nav:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.journey-nav:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
