@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom"
+import heading from "../assets/heading.png"
+
 export default function Navbar() {
     return(
         <div className="navbar">
@@ -6,7 +9,9 @@ export default function Navbar() {
             </div>
 
             <div className="nav-center">
-                VARNIKA VERMA
+                <Link to="/">
+                   <img className="heading-style" src={heading}/>
+                </Link>
             </div>
         
 

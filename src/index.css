@@ -1,12 +1,51 @@
 body {
   margin: 0;
   overflow: hidden;
-  cursor: url("/src/assets/cursor.png") 16 16, auto;
+  cursor: url("/src/assets/cursor.png") 8 8, auto;
+}
+
+.app-container{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+}
+
+.tv-wrapper{
+  position: relative;
+  aspect-ratio: 1920 / 1080;
+  height: 100vh;
+  max-width: 100vw;
+}
+
+.tv-foreground{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  z-index: 666;
+}
+
+.tv-screen-content{
+  position: absolute;
+  top: 8%;
+  left: 3.5%;
+  width: 85%;
+  height: 80%;
+  overflow: hidden;
+  border: 5% / 6%;
 }
 
 .world-container {
-  width: 100vw;
-  height: 100vh;
+  width: 90%;
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -29,7 +68,7 @@ body {
   position: absolute;
   transform: translate(-50%, -50%);
   cursor: url("/src/assets/cursor.png") 16 16, auto;
-  z-index: 5;
+  z-index: 6;
 }
 
 .building{
@@ -50,7 +89,7 @@ body {
 .label{
   position: absolute;
   bottom: 110%;
-  left: 50%;
+  left: 60%;
   transform: translateX(-50%);
   background: white;
   padding:  6px 14px;
@@ -68,32 +107,32 @@ body {
 
 /* Hover wordings */
 .hover-word {
-  width: 100px;
+  width: 90px;
 }
 
 /* Buildings size*/
 .statue-size{
-  width: 220px;
+  width: 150px;
 }
 
 .journey-size{
-  width: 900px;
+  width: 600px;
 }
 
 .projects-size{
-  width: 520px;
+  width: 340px;
 }
 
 .playground-size{
-  width: 280px;
+  width: 200px;
 }
 
 /* NAVBAR */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: absolute;
+  top: 7%;
+  left: 3%;
+  width: 83%;
   height: 70px;
   display: flex;
   align-items: center;
@@ -116,9 +155,11 @@ body {
 }
 
 .nav-center {
-  font-weight: bold;
-  font-size: 20px;
-  letter-spacing: 2px;
+  top: 50%;
+}
+
+.heading-style{
+  width: 140px;
 }
 
 .nav-right {
@@ -154,8 +195,8 @@ body {
 
 .journey-container {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 90%;
+  height: 100%;
   overflow: hidden;
   background: #2e7a52;
 }
@@ -175,19 +216,19 @@ body {
 
 .statue-row {
   position: absolute;
-  bottom: 20px;
-  left: 40%;
+  bottom: 50px;
+  left: 50%;
   width: 100%;
   transform: translateX(0);
   display: flex;
   align-items: flex-end; /* important */
-  gap: 100px;
+  gap: 120px;
   transition: transform 0.5s ease;
   z-index: 3;
 }
 
 .statue {
-  height: 820px; /* uniform size */
+  height: 580px; /* uniform size */
   flex-shrink: 0;
   object-fit: contain;
   transition: transform 0.4s ease, opacity 0.4s ease;
@@ -210,7 +251,7 @@ body {
 .spotlight {
   position: absolute;
   top: 98px;
-  width: 100px;
+  width: 75px;
   pointer-events: none;
   z-index: 1;
   opacity: 0.6 ;
@@ -274,3 +315,71 @@ body {
   transform: translateY(-50%) scale(0.95);
 }
 
+/*SCROLL*/
+.scroll-overlay{
+  position: fixed;
+  top: 80px;;
+  left:0;
+  width:88%;
+  height:76%;
+
+  background: rgba(0,0,0,0.55);
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  padding-top:100px;
+
+  overflow-y:auto;   /* THIS ENABLES PAGE SCROLL */
+  z-index:10;
+}
+
+.scroll-popup{
+  animation: scrollOpen 0.5s ease;
+  scroll-behavior: smooth;
+  width: 600px;
+  padding: 80px 90px;
+  background-repeat: repeat-y;
+  background-position: top center;
+  background-size: 100% auto;
+  text-align: center;
+  position: relative;
+}
+
+.scroll-popup::-webkit-scrollbar{
+  width: 6px;
+}
+
+.scroll-popup::-webkit-scrollbar-thumb{
+  background: #b89a63;
+  border-radius: 10px;
+}
+
+@keyframes scrollOpen{
+  0%{
+    transform:scale(0.7) translateY(40px);
+    opacity:0;
+  }
+
+  100%{
+    transform:scale(1) translateY(0);
+    opacity:1;
+  }
+}
+
+.close-btn{
+position:absolute;
+top:15px;
+right:15px;
+background:none;
+border:none;
+font-size:24px;
+cursor:pointer;
+}
+
+.scroll-content{
+  max-width: 900px;
+  margin: auto;
+  padding: 80px 90px;
+}

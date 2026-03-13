@@ -31,28 +31,28 @@ export default function World(){
         
                 <img src={worldImage} className="world-map" />
         
-                <div className="hover-item" style={{ top: "47.08%", left: "41.40%" }}>
+                <div className="hover-item" style={{ top: "47.50%", left: "41.20%" }}>
                   <div className="building-wrapper">
                     <img src={statue} className="building normal statue-size" />
                     <img src={statueHover} className="building hover hover-word" />
                   </div>
                 </div>
         
-                <div className="hover-item" style={{ top: "38.08%", left: "16.85%" }}>
+                <div className="hover-item" style={{ top: "39.68%", left: "14.55%" }}>
                   <div className="building-wrapper">
                     <img src={playground} className="building normal playground-size" />
                     <img src={playgroundHover} className="building hover hover-word" />
                   </div>
                 </div>
         
-                <div className="hover-item" style={{ top: "34.00%", left: "63.45%" }}>
+                <div className="hover-item" style={{ top: "37.30%", left: "64.45%" }}>
                   <div className="building-wrapper">
                     <img src={projects} className="building normal projects-size" />
                     <img src={projectsHover} className="building hover hover-word" />
                   </div>
                 </div>
         
-                <div className="hover-item" style={{ top: "5.78%", left: "23.45%" }} onClick={() => navigate("/journey")}>
+                <div className="hover-item" style={{ top: "12.78%", left: "22.05%" }} onClick={() => navigate("/journey")}>
                   <div className="building-wrapper">
                     <img src={journey} className="building normal journey-size" />
                     <img src={journeyHover} className="building hover hover-word" />

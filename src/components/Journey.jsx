@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import background from "../assets/journey/background.png"
 import floor from "../assets/journey/floor.png"
 import spotlight from "../assets/journey/spotlight.png"
+import scrollBg from "../assets/journey/scroll-bg.png"
 //statues
 import statue1 from "../assets/journey/statue1.png"
 import statue2 from "../assets/journey/statue2.png"
@@ -16,8 +17,53 @@ import rightArrow from "../assets/journey/right.png"
 
 export default function Journey() {
 
-  const statues = [statue1, statue2, statue3, statue4, statue5, statue6]
+  const statues = [
+    {
+      image: statue1,
+      title: "Snow in Marshville",
+      author: "Seogyo",
+      date: "2019.12.02 - 2020.01.01",
+      description:
+        "Winter — the season Marshville residents love the most!",
+    },
+    {
+      image: statue2,
+      title: "Spring Garden",
+      author: "Seogyo",
+      date: "2020.03.01",
+      description: "A peaceful spring scene.",
+    },
+    {
+      image: statue3,
+      title: "Summer Market",
+      author: "Seogyo",
+      date: "2020.06.15",
+      description: "The market comes alive in summer.",
+    },
+    {
+      image: statue4,
+      title: "Autumn Leaves",
+      author: "Seogyo",
+      date: "2020.10.10",
+      description: "Golden leaves fall across the village.",
+    },
+    {
+      image: statue5,
+      title: "Winter Night",
+      author: "Seogyo",
+      date: "2021.01.01",
+      description: "A quiet snowy evening.",
+    },
+    {
+      image: statue6,
+      title: "Village Festival",
+      author: "Seogyo",
+      date: "2021.05.12",
+      description: "The biggest celebration in Marshville.",
+    }
+  ]
   const [activeIndex, setActiveIndex] = useState(0)
+  const [selectedStatue, setSelectedStatue] = useState(null)
 
   const next = () => {
     setActiveIndex((prev) => (prev + 1) % statues.length)
@@ -67,8 +113,9 @@ export default function Journey() {
           >
             <img src={spotlight} className="spotlight" />
             <img
-              src={statue}
+              src={statue.image}
               className="statue"
+              onClick={() => index === activeIndex && setSelectedStatue(statue)}
             />
           </div>
         ))}
@@ -85,6 +132,24 @@ export default function Journey() {
       <div className="journey-nav right" onClick={next}>
         <img src={rightArrow} alt="Next" />
       </div>
+
+      {/*POP UP*/}
+      {
+        selectedStatue && (
+          <div className="scroll-overlay" onClick={() => setSelectedStatue(null)}>
+            <div className="scroll-popup" onClick={(e) => e.stopPropagation()} style={{backgroundImage: `url(${scrollBg})`}}>
+              <button className="close-btn" onClick={() => setSelectedStatue(null)}> X </button>
+              <div className="scroll-content">  
+                <h1>{selectedStatue.title}</h1>
+                <p> object {selectedStatue.author}</p>
+                <p>{selectedStatue.date}</p>
+                <p>{selectedStatue.description}</p>
+                <img src={selectedStatue.image}/>
+              </div>
+            </div>
+          </div>
+        )
+      }
     </div>
   )
 }
