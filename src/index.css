@@ -383,3 +383,91 @@ cursor:pointer;
   margin: auto;
   padding: 80px 90px;
 }
+
+/* PROJECTS PAGE */
+.projects-container {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.projects-bg {
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.buildings-row {
+  position: absolute;
+  bottom: 3px;
+  left: 5%;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.5s ease;
+  z-index: 3;
+}
+
+.building-slot {
+  flex-shrink: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  cursor: pointer;
+}
+
+.project-building {
+  height: 460px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.building-slot.active:hover .project-building {
+  filter: 
+
+    drop-shadow(0 4px 0 white)
+    drop-shadow(0 -4px 0 white);
+}
+
+.project-building.hover {
+  opacity: 0;
+  position: absolute;
+  bottom: 80%;   /* sits above the building */
+  left: 30%;
+  transform: translateX(-50%);
+  height: 60px;   /* override the 460px */
+  width: auto;   /* adjust to your label PNG size */
+  transition: opacity 0.15s ease;
+}
+
+.building-slot.active:hover .project-building.hover {
+  opacity: 1;
+}
+
+
+
+
+/* Dots */
+.projects-dots {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dot-active {
+  background: white;
+}

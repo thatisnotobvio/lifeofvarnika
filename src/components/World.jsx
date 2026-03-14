@@ -45,7 +45,7 @@ export default function World(){
                   </div>
                 </div>
         
-                <div className="hover-item" style={{ top: "37.30%", left: "64.45%" }}>
+                <div className="hover-item" style={{ top: "37.30%", left: "64.45%" }} onClick={() => navigate("/projects")}>
                   <div className="building-wrapper">
                     <img src={projects} className="building normal projects-size" />
                     <img src={projectsHover} className="building hover hover-word" />
